@@ -2,7 +2,8 @@ pragma solidity ^0.4.9;
 
 import "./Receiver_Interface.sol";
 import "./ERC223_Interface.sol";
-import "./Balances.sol"
+import "./Balances.sol";
+import "./Utils.sol";
 
  /**
  * ERC223 token by Dexaran
@@ -33,10 +34,15 @@ contract SafeMath {
     }
 }
 
-contract ERC223Token is ERC223, SafeMath {
+contract ERC223Token is ERC223, SafeMath, Balances, Utils {
 
-  mapping(address => uint) balances;
+  mapping (address => uint256) public balanceOf;
+  mapping (address => mapping (address => uint256)) public allowance;
 
+  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+
+  string public standard = 'Token 0.1';
   string public name = "KylerCoin";
   string public symbol = "KC";
   uint8 public decimals = 18;
