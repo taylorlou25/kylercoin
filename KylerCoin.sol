@@ -36,6 +36,8 @@ contract SafeMath {
 
 contract ERC223Token is ERC223, SafeMath, Balances, Utils {
 
+    mapping(address => uint) balances;
+
   string public standard = 'Token 0.1';
   string public name = "KylerCoin";
   string public symbol = "KC";
