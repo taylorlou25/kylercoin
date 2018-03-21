@@ -64,12 +64,11 @@ contract ERC223Token is ERC223, SafeMath {
    *
    * Initializes contract with initial supply tokens to the creator of the contract
    */
-   /**
+
   function ERC223Token(uint256 initialSupply) public {
       totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
-      balanceOf[msg.sender] = totalSupply;                // Give the creator all initial tokens
+      balanceOf[msg.sender] = totalSupply;               // Give the creator all initial tokens
   }
-**/
 
   // Function that is called when a user or another contract wants to transfer funds .
   function transfer(address _to, uint _value, bytes _data, string _custom_fallback) public returns (bool success) {
