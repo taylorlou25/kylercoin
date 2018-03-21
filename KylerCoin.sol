@@ -2,6 +2,7 @@ pragma solidity ^0.4.9;
 
 import "./Receiver_Interface.sol";
 import "./ERC223_Interface.sol";
+import "./Balances.sol"
 
  /**
  * ERC223 token by Dexaran
