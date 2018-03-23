@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "homepage": "",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "solc": "^0.4.21"
   }
 }
