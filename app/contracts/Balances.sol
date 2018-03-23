@@ -17,16 +17,16 @@ contract Balances {
 
   // MODIFIERS
   modifier onlyModule(){
-    if(modules[msg.sender] == true){ _ ;} else { throw; }
+    if(modules[msg.sender] == true){ _ ;} else { revert(); }
   }
 
   modifier onlyRoot(){
-    if(root == msg.sender){ _ ;} else { throw; }
+    if(root == msg.sender){ _ ;} else { revert(); }
   }
 
   function () {
       //if ether is sent to this address, send it back.
-      throw;
+      revert();
   }
 
   function Balances(uint256 _initialAmount){
@@ -96,7 +96,7 @@ contract Balances {
 
   /* Administration Functions */
 
- function empty(address _sendTo) onlyRoot { if(!_sendTo.send(this.balance)) throw; }
+ function empty(address _sendTo) onlyRoot { if(!_sendTo.send(this.balance)) revert(); }
  function kill() onlyRoot { selfdestruct(root); }
  function transferRoot(address _newOwner) onlyRoot { root = _newOwner; }
 
