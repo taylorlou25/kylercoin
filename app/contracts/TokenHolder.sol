@@ -1,7 +1,6 @@
 pragma solidity ^0.4.18;
 import './Owned.sol';
 import './Utils.sol';
-import './IERC20Token.sol';
 import './ERC223_Interface.sol';
 
 /*
