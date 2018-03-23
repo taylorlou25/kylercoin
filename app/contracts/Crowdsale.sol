@@ -20,7 +20,7 @@ contract Crowdsale {
   using SafeMath for uint256;
 
   // The token being sold
-  ERC20 public token;
+  ERC223 public token;
 
   // Address where funds are collected
   address public wallet;
@@ -45,7 +45,7 @@ contract Crowdsale {
    * @param _wallet Address where collected funds will be forwarded to
    * @param _token Address of the token being sold
    */
-  function Crowdsale(address _wallet, ERC20 _token) public {
+  function Crowdsale(address _wallet, ERC223 _token) public {
     require(_wallet != address(0));
     require(_token != address(0));
 
