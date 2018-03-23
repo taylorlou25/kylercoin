@@ -45,12 +45,11 @@ contract Crowdsale {
    * @param _wallet Address where collected funds will be forwarded to
    * @param _token Address of the token being sold
    */
-  function Crowdsale(uint256 _rate, address _wallet, ERC20 _token) public {
-    require(_rate > 0);
+  function Crowdsale(address _wallet, ERC20 _token) public {
     require(_wallet != address(0));
     require(_token != address(0));
 
-    rate = _rate;
+    rate = 10000000000000000;
     wallet = _wallet;
     token = _token;
   }
