@@ -35,7 +35,7 @@ contract SafeMath {
     }
 }
 
-contract ERC223Token is ERC223, SafeMath, Balances, Utils, ISmartToken, Owned, TokenHolder {
+contract ERC223Token is Owned, ERC223, SafeMath, Balances, Utils, ISmartToken, TokenHolder {
 
     mapping(address => uint) balances;
 
