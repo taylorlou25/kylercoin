@@ -6,5 +6,5 @@ import './ERC223_Interface.sol';
     Token Holder interface
 */
 contract ITokenHolder is IOwned, ERC223 {
-    function withdrawTokens(IERC20Token _token, address _to, uint256 _amount) public;
+    function withdrawTokens(ERC223 _token, address _to, uint256 _amount) public;
 }
