@@ -2,7 +2,7 @@ pragma solidity ^0.4.18;
 import './Owned.sol';
 import './Utils.sol';
 import './IERC20Token.sol';
-import './ITokenHolder.sol';
+import './ERC223_Interface.sol';
 
 /*
     We consider every contract to be a 'token holder' since it's currently not possible
@@ -11,7 +11,7 @@ import './ITokenHolder.sol';
     The TokenHolder's contract sole purpose is to provide a safety mechanism that allows
     the owner to send tokens that were sent to the contract by mistake back to their sender.
 */
-contract TokenHolder is ITokenHolder, Owned, Utils {
+contract TokenHolder is ITokenHolder, Owned, Utils, ERC223 {
     /**
         @dev constructor
     */
