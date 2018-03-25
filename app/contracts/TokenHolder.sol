@@ -25,7 +25,7 @@ contract TokenHolder is ITokenHolder, Owned, Utils, ERC223 {
         @param _to      account to receive the new amount
         @param _amount  amount to withdraw
     */
-    function withdrawTokens(IERC20Token _token, address _to, uint256 _amount)
+    function withdrawTokens(ERC223 _token, address _to, uint256 _amount)
         public
         ownerOnly
         validAddress(_token)

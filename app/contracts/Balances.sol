@@ -36,7 +36,7 @@ contract Balances {
   }
 
   // GET BALANCE
-  function getBalance(address _acct) returns(uint balance){
+  function getBalance(address _acct) public returns(uint balance){
     return balances[_acct];
   }
 

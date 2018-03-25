@@ -5,6 +5,7 @@ import "./ERC223_Interface.sol";
 import "./Balances.sol";
 import "./Utils.sol";
 import "./Owned.sol";
+import "TokenHolder.sol";
 
  /**
  * ERC223 token by Dexaran
@@ -35,7 +36,7 @@ contract SafeMath {
     }
 }
 
-contract ERC223Token is Owned, ERC223, SafeMath, Balances, Utils, ISmartToken, TokenHolder {
+contract KylerCoin is Owned, ERC223, SafeMath, Balances, Utils, ISmartToken, TokenHolder {
 
     mapping(address => uint) balances;
 
@@ -77,7 +78,7 @@ contract ERC223Token is Owned, ERC223, SafeMath, Balances, Utils, ISmartToken, T
    * Initializes contract with initial supply tokens to the creator of the contract
    */
 
-  function ERC223Token(uint256 initialSupply) public {
+  function KylerCoin(uint256 initialSupply) public {
       totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
       balanceOf[msg.sender] = totalSupply;                // Give the creator all initial tokens
       NewSmartToken(address(this));
@@ -180,6 +181,11 @@ contract ERC223Token is Owned, ERC223, SafeMath, Balances, Utils, ISmartToken, T
   // allows execution only when transfers aren't disabled
   modifier transfersAllowed {
       assert(transfersEnabled);
+      _;
+  }
+
+  modifier ownerOnly {
+      assert(msg.sender == owner);
       _;
   }
 
